@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_check.php';
+
 // Database connection
 $host = "localhost"; // Replace with your host
 $username = "root"; // Replace with your database username
@@ -14,22 +16,19 @@ if ($conn->connect_error) {
 
 // Get the donation ID to delete
 if (isset($_GET["id"])) {
-    $fid = $_GET["id"];
+    $fid = (int) $_GET["id"];
 
     // Delete the donation
     $sql = "DELETE FROM donations WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $fid);
 
-    if ($stmt->execute()) {
-        echo "Donation deleted successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+    $stmt->execute();
 
     $stmt->close();
 } else {
-    echo "Invalid request.";
+    header("Location: donor.php");
+    exit();
 }
 
 $conn->close();

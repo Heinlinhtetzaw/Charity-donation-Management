@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_check.php';
+
 // Database connection
 $host = "localhost"; 
 $username = "root";
@@ -14,7 +16,7 @@ if ($conn->connect_error) {
 
 // Get donation ID and action (complete or pending)
 if (isset($_GET["id"]) && isset($_GET["action"])) {
-    $id = $_GET["id"];
+    $id = (int) $_GET["id"];
     $action = $_GET["action"];
 
     // Validate the action

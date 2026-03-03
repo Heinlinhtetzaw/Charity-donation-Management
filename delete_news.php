@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_check.php';
+
 // Database connection
 $host = "localhost"; // Replace with your host
 $username = "root"; // Replace with your database username
@@ -14,22 +16,19 @@ if ($conn->connect_error) {
 
 // Get the news ID to delete
 if (isset($_GET["id"])) {
-    $nid = $_GET["id"];
+    $nid = (int) $_GET["id"];
 
     // Delete the news
     $sql = "DELETE FROM news WHERE nid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $nid);
 
-    if ($stmt->execute()) {
-        echo "News deleted successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+    $stmt->execute();
 
     $stmt->close();
 } else {
-    echo "Invalid request.";
+    header("Location: addnews.php");
+    exit();
 }
 
 $conn->close();

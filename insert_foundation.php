@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_check.php';
+
 // Database connection
 $host = "localhost"; 
 $username = "root"; 

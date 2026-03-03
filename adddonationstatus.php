@@ -1,3 +1,4 @@
+<?php require_once 'auth_check.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,6 +107,7 @@ table td a:hover {
                 <li><a href="donor.php"><i class="fas fa-users"></i>Donors</a></li>
                 <li><a href="addfoundation.php"><i class="fas fa-hand-holding-heart"></i>Add Foundation</a></li>
                 <li><a href="addnews.php"><i class="fas fa-newspaper"></i>Add News</a></li>
+                <li><a href="admin_invite.php"><i class="fas fa-key"></i>Invite Code</a></li>
                 <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         </aside>

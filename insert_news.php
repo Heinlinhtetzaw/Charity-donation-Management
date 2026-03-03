@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_check.php';
+
 // Database connection
 $host = "localhost"; // Replace with your host
 $username = "root"; // Replace with your database username
