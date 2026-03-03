@@ -1,0 +1,32 @@
+# Ignore uploads and any generated files
+/uploads/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# PHPStorm / JetBrains
+.idea/
+
+# Composer dependencies (not used but safe)
+vendor/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Ignore node modules if ever added
+node_modules/
+
+# Temporary files
+*.tmp
+*~
+
+# PHP sessions
+php_session.txt
+
+# Backup files
+*.bak
+*.old
